@@ -104,8 +104,6 @@ $(function () {
 
   //섹션: main_soonjung_slide
   var soonjungSlide = new Swiper('.soonjung_slide', {
-    // allowTouchMove: false,
-
     slidesPerView: 2,
     slidesPerColumn: 2,
 
@@ -120,8 +118,31 @@ $(function () {
         slidesPerView: 'auto',
       },
     },
+
     scrollbar: {
       el: '.swiper-scrollbar',
+    },
+  });
+
+  //섹션: main_gift_slide
+  var giftSlide = new Swiper('.gift_slide', {
+    slidesPerView: 4,
+
+    breakpoints: {
+      //타블렛 분기점 : 1024px 이하
+      1024: {
+        slidesPerView: 2,
+      },
+      //타블렛 분기점 : 768px 이하
+      768: {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+      },
+    },
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
   });
 });
