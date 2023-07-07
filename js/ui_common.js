@@ -71,11 +71,9 @@ $(function () {
     slidesPerView: 5,
 
     breakpoints: {
-      //타블렛 분기점 : 1024px 이하
       1024: {
         slidesPerView: 3,
       },
-      //타블렛 분기점 : 768px 이하
       768: {
         slidesPerView: 2,
       },
@@ -91,7 +89,6 @@ $(function () {
     slidesPerView: 2,
 
     breakpoints: {
-      //모바일 분기점 : 768px 이하
       768: {
         slidesPerView: 'auto',
       },
@@ -104,18 +101,11 @@ $(function () {
 
   //섹션: main_soonjung_slide
   var soonjungSlide = new Swiper('.soonjung_slide', {
-    slidesPerView: 2,
-    slidesPerColumn: 2,
+    slidesPerView: 4,
 
     breakpoints: {
-      //타블렛 분기점 : 1024px 이하
-      1024: {
-        slidesPerView: 4,
-        slidesPerColumn: 1,
-      },
-      //모바일 분기점 : 768px 이하
       768: {
-        slidesPerView: 'auto',
+        slidesPerView: 4,
       },
     },
 
@@ -129,14 +119,11 @@ $(function () {
     slidesPerView: 4,
 
     breakpoints: {
-      //타블렛 분기점 : 1024px 이하
       1024: {
         slidesPerView: 2,
       },
-      //타블렛 분기점 : 768px 이하
       768: {
         slidesPerView: 'auto',
-        centeredSlides: true,
       },
     },
 
@@ -144,5 +131,75 @@ $(function () {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+  });
+
+  //섹션: main_new_product
+  var newproductSlide = new Swiper('.new_product_slide', {
+    slidesPerView: 4,
+
+    breakpoints: {
+      768: {
+        slidesPerView: 'auto',
+      },
+    },
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+
+  //섹션: main_sns
+  var snsSlide = new Swiper('.sns_slide', {
+    loop: true,
+
+    autoplay: {
+      delay: 5000,
+    },
+
+    slidesPerView: 1,
+    breakpoints: {
+      1024: {
+        slidesPerView: 'auto',
+      },
+    },
+  });
+
+  //섹션: main_sns
+  var newseventSlide = new Swiper('.news_event_slide', {
+    loop: true,
+
+    slidesPerView: 2,
+    slidesPerGroup: 2,
+    spaceBetween: 20,
+
+    breakpoints: {
+      768: {
+        slidesPerView: 'auto',
+        slidesPerGroup: 1,
+      },
+    },
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+
+  // 푸터 top 버튼
+  $(window)
+    .on('scroll', function () {
+      var st = $(this).scrollTop();
+      if (st > 0) {
+        $('#footer .top_wrap').fadeIn(200);
+      } else {
+        $('#footer .top_wrap').fadeOut(0);
+      }
+    })
+    .trigger('scroll');
+
+  $('#footer .btn_top').on('click', function (e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: 0 }, 600);
   });
 });
